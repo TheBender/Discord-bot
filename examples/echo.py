@@ -1,0 +1,17 @@
+import discord
+
+client = discord.Client()
+client.login('the_bender@mail.ru', 'Yfgjbkbvshe,kz')
+
+@client.event
+def on_ready():
+    print('Connected!')
+    print('Username: ' + client.user.name)
+    print('ID: ' + client.user.id)
+
+@client.event
+def on_message(message):
+    if message.author.id != client.user.id:
+        client.send_message(message.channel, message.content)
+
+client.run()
